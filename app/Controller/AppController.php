@@ -36,13 +36,30 @@ class AppController extends Controller {
         /* add Auth component and set  the urls that will be loaded after the login and logout actions is performed */
         'Auth' => array(
             'loginRedirect' => array('controller' => 'pages', 'action' => 'home'),
-            'logoutRedirect' => array('controller' => 'users', 'action' => 'login')
+            'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
+            'authorize' => 'Controller'
         )
     );
 
     public function beforeFilter() {
 
 
+    }
+
+
+    public function isAuthorized($user = null) {
+        // Any registered user can access public functions
+        if (empty($this->request->params['admin'])) {
+            return true;
+        }
+
+        // Only admins can access admin functions
+        if (isset($this->request->params['admin'])) {
+            return (bool)($user['role'] === '1');
+        }
+
+        // Default deny
+        return false;
     }
 
 }
