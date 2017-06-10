@@ -31,6 +31,9 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+    /**
+     * @var array
+     */
     public $components = array(
         'Session',
         /* add Auth component and set  the urls that will be loaded after the login and logout actions is performed */
@@ -41,12 +44,22 @@ class AppController extends Controller {
         )
     );
 
+    /**
+     *
+     */
     public function beforeFilter() {
 
 
     }
 
 
+    /**
+     * @param null $user
+     * @return bool
+     *
+     * ROLE 1 for admin
+     * ROLE 0 for user
+     */
     public function isAuthorized($user = null) {
         // Any registered user can access public functions
         if (empty($this->request->params['admin'])) {
