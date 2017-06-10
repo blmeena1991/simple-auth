@@ -11,9 +11,12 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse pull-right">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <?if(!$this->Session->read('Auth.User')){?>
+                    <li><a href="/users/add">Sign Up</a></li>
+                    <li><a href="/users/login">Sign In</a></li>
+                <?}else{?>
+                    <li><a href="/users/logout">Logout</a></li>
+                <?}?>
             </ul>
         </div><!--/.nav-collapse -->
     </div>

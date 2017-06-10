@@ -41,8 +41,8 @@ class AppController extends Controller {
     );
 
     public function beforeFilter() {
-        /* set actions that will not require login */
-        $this->Auth->allow('index','display', 'view');
+
+
     }
 
 }

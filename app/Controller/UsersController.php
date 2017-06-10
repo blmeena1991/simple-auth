@@ -16,20 +16,6 @@ class UsersController extends AppController {
 		parent::beforeFilter();
 
 		//create table in database for this exemple
-		/* Load Model datasource */
-		/*App::import('Model', 'ConnectionManager');
-		$con = new ConnectionManager;
-		$cn = $con->getDataSource('default');
-		$sql = "CREATE TABLE IF NOT EXISTS users (
-          id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-          username VARCHAR(50),
-          password VARCHAR(50),
-          created DATETIME DEFAULT NULL,
-          modified DATETIME DEFAULT NULL
-      								)";
-		$cn->query($sql); */
-
-		/* allow add action so user can register */
 		$this->Auth->allow('add');
 
 	}
@@ -38,6 +24,14 @@ class UsersController extends AppController {
 		if ($this->request->is('post')) {
 			/* login and redirect to url set in app controller */
 			if ($this->Auth->login()) {
+
+                $role=$this->Auth->user('role');
+                if($role){
+                    return $this->redirect(array(
+                        'controller'=>'pages',
+                        'action'=>'index'
+                    ));
+                }
 				return $this->redirect($this->Auth->redirect());
 			}
 			$this->Session->setFlash(__('Invalid username or password, try again'));

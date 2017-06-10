@@ -42,11 +42,11 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 </head>
 <body>
-	<div id="container">
+	<div id="container" class="container">
 		<div id="header">
            <?php echo $this->element('header');?>
 		</div>
-		<div id="content">
+		<div id="content" style="padding: 60px 20px 40px 20px">
 
 			<?php echo $this->Flash->render(); ?>
 

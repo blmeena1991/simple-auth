@@ -9,10 +9,6 @@ class User extends AppModel {
                 'allowEmpty' => false,
                 'message' => 'Please enter a username.'
             ),
-            'alpha' => array(
-                'rule' => array('alphaNumeric'),
-                'message' => 'The username must be alphanumeric.'
-            ),
             'unique_username' => array(
                 'rule' => array('isUnique', 'username'),
                 'message' => 'This username is already in use.'
