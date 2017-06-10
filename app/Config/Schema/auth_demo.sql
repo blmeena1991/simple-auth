@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 10, 2017 at 09:06 AM
+-- Generation Time: Jun 10, 2017 at 11:18 AM
 -- Server version: 5.7.17
 -- PHP Version: 5.6.30
 
@@ -40,7 +40,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role`, `username`, `password`, `created`, `modified`) VALUES
-(1, 0, 'admin@admin.com', 'e804b2e24c9cf348556c83ac53d8aa6665c06cc9', '2017-06-10 08:07:24', '2017-06-10 08:07:24');
+(1, 1, 'admin@admin.com', 'e804b2e24c9cf348556c83ac53d8aa6665c06cc9', '2017-06-10 08:07:24', '2017-06-10 08:07:24'),
+(2, 0, 'test@test.in', 'e804b2e24c9cf348556c83ac53d8aa6665c06cc9', '2017-06-10 09:36:01', '2017-06-10 09:36:01');
 
 --
 -- Indexes for dumped tables
@@ -60,7 +61,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
