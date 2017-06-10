@@ -26,11 +26,8 @@ class UsersController extends AppController {
 			if ($this->Auth->login()) {
 
                 $role=$this->Auth->user('role');
-                if($role){
-                    return $this->redirect(array(
-                        'controller'=>'pages',
-                        'action'=>'index'
-                    ));
+                if($role==1){
+                    return $this->redirect(array('controller'=>'pages','action'=>'index','admin'=>true));
                 }
 				return $this->redirect($this->Auth->redirect());
 			}
